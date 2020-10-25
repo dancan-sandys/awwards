@@ -93,8 +93,16 @@ def addproject(request):
 def showproject(request):
     projects = Project.objects.all()
 
-    return render(request, "projects/display.html")
+    return render(request, "projects/display.html", {"projects":projects})
 
+def oneproject(request, id):
+    project = Project.objects.get(id = id)
+
+    return render(request, "projects/one.html", {"project":project})
+
+def rate(request):
+
+    return render('projects/rate.html')
 
 
 

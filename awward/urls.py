@@ -8,6 +8,6 @@ urlpatterns = [
     url('profile/update/$', views.updateprofile, name='updateprofile'),
     url('profile/home/$', views.profilepage, name='profilepage'),
     url('project/add/$', views.addproject, name="addproject"),
-    
-
+    url('projects/$', views.showproject, name='projects'),
+    url('project/single', views.oneproject, name='single'),
 ]
