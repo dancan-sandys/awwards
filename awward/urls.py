@@ -7,5 +7,7 @@ urlpatterns = [
     url('login/$', views.loginpage, name='login'),
     url('profile/update/$', views.updateprofile, name='updateprofile'),
     url('profile/home/$', views.profilepage, name='profilepage'),
+    url('project/add/$', views.addproject, name="addproject"),
+    
 
 ]

@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from .models import Profile, Project, Rating
-from .forms import profileupdate
+from .forms import projectaddition
 
 # Create your views here.
 
@@ -74,6 +74,26 @@ def profilepage(request):
 
     return render (request, 'profile/home.html', {"profile":profile})
 
+def addproject(request):
+    form = projectaddition()
+    if request.method == "POST":
+        form = projectaddition(request.POST)
+        user = request.user
+        profile = Profile.objects.get(name=user.username)
+        
+        if form.is_valid():
+            new_project = form.save(commit=False)
+            new_project.User = profile
+            new_project.save()
+
+            return redirect("home")
+
+    return render(request, "projects/addproject.html", {"form":form})
+
+def showproject(request):
+    projects = Project.objects.all()
+
+    return render(request, "projects/display.html")
 
 
 
