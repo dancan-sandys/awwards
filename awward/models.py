@@ -3,10 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Profile(models.Model):
+    name = models.CharField(max_length=80)
     profilepic = models.CharField(max_length=30)
-    bio = models.TextField(max_length=500)
-    Phone = models.IntegerField()
-    email = models.EmailField(max_length=20)
+    bio = models.TextField()
+    Phone = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
 
     def saveprofile(self):
         self.save()
@@ -21,7 +22,7 @@ class Profile(models.Model):
 class Project(models.Model):
     Title = models.CharField(max_length=30)
     Landing = models.CharField(max_length=30)
-    Description = models.TextField(max_length=500)
+    Description = models.TextField()
     User = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     def saveproject(self):
