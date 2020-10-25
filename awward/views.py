@@ -66,3 +66,16 @@ def updateprofile(request):
         return redirect("home")
     
     return render(request,'profile/update.html', {"form":form})
+
+def profilepage(request):
+
+    user = request.user
+    profile = Profile.objects.get(name=user.username)
+
+    return render (request, 'profile/home.html', {"profile":profile})
+
+
+
+
+
+
