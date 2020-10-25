@@ -101,8 +101,21 @@ def oneproject(request, id):
     return render(request, "projects/one.html", {"project":project})
 
 def rate(request, id):
-    
+    ratings = Rating.objects.all()    
     project = Project.objects.get(id = id)
+    totalcreativity = 0
+    totaldesign = 0
+    totalfunctionality = 0
+    for rating in ratings:
+        totalcreativity += rating.Content
+        totaldesign += rating.Design 
+        totalfunctionality += rating.Usability
+
+    averagecreativity = totalcreativity/ratings.count()
+    averagedesign = totaldesign/ratings.count()
+    averagefunctionality = totalfunctionality/ratings.count()
+    totalaverage = (averagecreativity + averagedesign + averagefunctionality)/3
+
     if request.method == "POST":
         creativity = request.POST.get("creativity")
         design = request.POST.get("design")
@@ -116,9 +129,9 @@ def rate(request, id):
         new_rating = Rating(Design=design, Usability = functionality, Content = creativity, Average= average,Rater= profile, project=project)
         new_rating.saverating()
 
-        return render(request, 'projects/rate.html', {"create": average})
+        return render(request, 'projects/rate.html', {"ratings": ratings})
 
-    return render(request, 'projects/rate.html')
+    return render(request, 'projects/rate.html', {"ratings": ratings,"averagecreativity":averagecreativity, "averagedesign":averagedesign,"averagefunctionality":averagefunctionality, "totalaverage":totalaverage})
 
 
 

@@ -4,7 +4,7 @@ from django.db import models
 
 class Profile(models.Model):
     name = models.CharField(max_length=80)
-    profilepic = models.CharField(max_length=30)
+    profilepic = models.ImageField('profiles/')
     bio = models.TextField()
     Phone = models.CharField(max_length=30)
     email = models.EmailField(max_length=30)
@@ -21,7 +21,7 @@ class Profile(models.Model):
 
 class Project(models.Model):
     Title = models.CharField(max_length=30)
-    Landing = models.CharField(max_length=30)
+    Landing = models.ImageField(upload_to = 'landings/')
     Description = models.TextField()
     User = models.ForeignKey(Profile, on_delete=models.CASCADE)
 

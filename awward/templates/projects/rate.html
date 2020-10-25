@@ -5,6 +5,11 @@
     <input type="range" name="functionality" id="">
 
     <input type="submit" value="submit">
+<div>
+    {% for rating in ratings%}
+        {{rating.Design}}{{rating.Usability}} {{rating.Content}}{{rating.Average}}{{rating.Rater}}
+    {%endfor%}
+    {{totalaverage}}
+</div>
 
-{{create}}
 </form>
