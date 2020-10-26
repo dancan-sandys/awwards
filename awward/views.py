@@ -12,8 +12,9 @@ def home(request):
     projects = Project.objects.all()
     ratings = Rating.objects.all()
     project1 = Project.objects.get(id = 1)
+    rating1 = Rating.objects.get(id=1)
 
-    return render(request, 'home.html', {"projects":projects, "ratings":ratings, "project1":project1})
+    return render(request, 'home.html', {"projects":projects,"rating1":rating1, "ratings":ratings, "project1":project1})
 
 def register(request):
 

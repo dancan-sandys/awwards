@@ -1,3 +1,4 @@
+
 .projects{
     display: grid;
     grid-template-columns: auto auto;
@@ -8,4 +9,19 @@
 .project{
     width: 80%;
     padding: 3%;
+}
+
+.main{
+    margin: 2%;
+    width: 95%;
+    height: 70vh;
+    background-image: url("../../../media/pexels-daria-shevtsova-3277932.jpg");    
+    background-size: cover;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
+.mainratings{
+    position: relative;
+    top: 40%;
 }

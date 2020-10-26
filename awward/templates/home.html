@@ -6,8 +6,20 @@
 <link rel="stylesheet" href="../static/css/home.css">
 
 {%endblock%}
+<div class="main">
+    <h1>Project of the day: {{project1.Title}}</h1>
+    
+    <div class="mainratings">
+        <h5>Ratings</h5>
+        {{rating1.Design}}
+        {{rating1.Usability}}
+        {{rating1.Content}}
+        {{rating1.Average}}
+    </div>
+</div>
 
-<p>Yes</p>
+<h2>Other projects</h2>
+
 <div class="projects">
     {%for project in projects%}
     <div class="project card">
