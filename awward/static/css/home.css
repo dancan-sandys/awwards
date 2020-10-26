@@ -1,0 +1,11 @@
+.projects{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    padding: 5%;
+}
+
+.project{
+    width: 80%;
+    padding: 3%;
+}

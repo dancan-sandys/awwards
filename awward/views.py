@@ -8,8 +8,12 @@ from .forms import projectaddition
 # Create your views here.
 
 def home(request):
+    
+    projects = Project.objects.all()
+    ratings = Rating.objects.all()
+    project1 = Project.objects.get(id = 1)
 
-    return render(request, 'home.html')
+    return render(request, 'home.html', {"projects":projects, "ratings":ratings, "project1":project1})
 
 def register(request):
 
@@ -129,7 +133,7 @@ def rate(request, id):
         new_rating = Rating(Design=design, Usability = functionality, Content = creativity, Average= average,Rater= profile, project=project)
         new_rating.saverating()
 
-        return render(request, 'projects/rate.html', {"ratings": ratings})
+        return render(request, 'projects/rate.html', {"ratings": ratings, "averagecreativity":averagecreativity, "averagedesign":averagedesign,"averagefunctionality":averagefunctionality, "totalaverage":totalaverage})
 
     return render(request, 'projects/rate.html', {"ratings": ratings,"averagecreativity":averagecreativity, "averagedesign":averagedesign,"averagefunctionality":averagefunctionality, "totalaverage":totalaverage})
 

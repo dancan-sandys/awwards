@@ -1,1 +1,22 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{%block styles%}
+{{block.super}}
+<link rel="stylesheet" href="../static/css/home.css">
+
+{%endblock%}
+
 <p>Yes</p>
+<div class="projects">
+    {%for project in projects%}
+    <div class="project card">
+        <h1>{{project.Title}}</h1>
+        <img src="{{project.Landing.url}}" alt="landing">
+        <p>{{project.Description}}</p>
+    </div>
+
+    {%endfor%}
+</div>
+
+{%endblock%}
