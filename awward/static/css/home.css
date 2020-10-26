@@ -11,13 +11,16 @@
     padding: 3%;
 }
 
+.project img{
+    height: 40vh;
+}
+
 .main{
-    margin: 2%;
-    width: 95%;
+    
+    width: 100%;
     height: 70vh;
     background-image: url("../../../media/pexels-daria-shevtsova-3277932.jpg");    
     background-size: cover;
-    border-radius: 5px;
     text-align: center;
     color: white;
 }

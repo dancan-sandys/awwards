@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 .profilepic{
     width: 20%;
     height: 35vh;
@@ -9,4 +13,32 @@
 .profile{
     
     height: 40vh;
+}
+
+.bio{
+    color: white;
+    position: relative;
+    top: 13vh;
+    left: 40%;
+}
+.projects{
+    position: relative;
+    bottom: 20vh;
+    left: 5%;
+}
+
+.project img{
+    height: 40vh;
+}
+
+.Projects{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    padding: 5%;
+}
+
+.project{
+    width: 45%;
+    padding: 3%;
 }

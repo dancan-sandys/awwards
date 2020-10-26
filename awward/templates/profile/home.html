@@ -9,12 +9,32 @@
 
 {%endblock%}
 <div class="profile bg-dark">
-    
+    <div class="bio">
+        <p><em>Phone Number: </em>{{profile.Phone}}</p>
+        <p><em>Email Address: </em>{{profile.email}}</p>
+        <p><em>Bio: </em>{{profile.bio}}</p>
+    </div>
 </div>
 
 <img class="img img-fluid profilepic" src="{{profile.profilepic.url}}" alt="profile pic">
-<p>{{profile.bio}}</p>
-<p>{{profile.Phone}}</p>
-<p>{{profile.email}}</p>
+
+<div class="projects">
+
+    <h1>My Projects</h1>
+
+    <div class="Projects">
+        {%for project in projects%}
+        <div class="project card">
+            <h1>{{project.Title}}</h1>
+            <img src="{{project.Landing.url}}" alt="landing">
+            <p>{{project.Description}}</p>
+        </div>
+    
+        {%endfor%}
+    </div>
+
+</div>
+
+
 
 {%endblock%}

@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{%block styles%}
+{{block.super}}
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/project.css">
+{%endblock%}
+<div class="projectPic">
+    <img class="projectpic" src="{{project.Landing.url}}" alt="">
+</div>
+<h1>{{project.Title}}</h1>
+<h3>Ratings</h3>
+<div class="ratings">
+   
+    {%for rating in ratings%}
+    <div class="card rating">
+        <p>
+            {{rating.Design}}
+        </p>
+
+        <p>
+            {{rating.Usability}}
+        </p>
+
+        <p>
+            {{rating.Content}}
+        </p>
+
+        <p>
+            {{rating.Average}}
+        </p>
+
+    </div>
+</div>
+
+{%endfor%}
+
+{%endblock%}

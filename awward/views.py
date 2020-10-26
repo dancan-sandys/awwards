@@ -76,8 +76,9 @@ def profilepage(request):
 
     user = request.user
     profile = Profile.objects.get(name=user.username)
+    projects = Project.objects.filter(User=profile)
 
-    return render (request, 'profile/home.html', {"profile":profile})
+    return render (request, 'profile/home.html', {"profile":profile, "projects":projects})
 
 def addproject(request):
     form = projectaddition()
@@ -101,9 +102,12 @@ def showproject(request):
     return render(request, "projects/display.html", {"projects":projects})
 
 def oneproject(request, id):
-    project = Project.objects.get(id = id)
 
-    return render(request, "projects/one.html", {"project":project})
+    project = Project.objects.get(id = id)
+    ratings = Rating.objects.all()
+
+
+    return render(request, "projects/one.html", {"project":project, "ratings":ratings})
 
 def rate(request, id):
     ratings = Rating.objects.all()    
