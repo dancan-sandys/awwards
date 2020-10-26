@@ -14,26 +14,28 @@
 <div class="ratings">
    
     {%for rating in ratings%}
-    <div class="card rating">
+    <div class="rating card">
+        <p><small>As rated by <em>{{rating.Rater.name}}</em></small></p>
         <p>
-            {{rating.Design}}
+           Design: <span class="rate">{{rating.Design}}</span>
         </p>
 
         <p>
-            {{rating.Usability}}
+            Usability: <span class="rate" >{{rating.Usability}}</span>
         </p>
 
         <p>
-            {{rating.Content}}
+            Content: <span class="rate" >{{rating.Content}}</span>
         </p>
 
         <p>
-            {{rating.Average}}
+            Average: <span class="rate" >{{rating.Average}}</span>
         </p>
 
     </div>
+    {%endfor%}
+
 </div>
 
-{%endfor%}
 
 {%endblock%}
