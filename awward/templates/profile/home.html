@@ -1,33 +1,20 @@
-<img src="{{profile.profilepic}}" alt="profile pic">
+{%extends 'base.html'%}
+
+
+{%block content%}
+{%block styles%}
+{{block.super}}
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/profile.css">
+
+{%endblock%}
+<div class="profile bg-dark">
+    
+</div>
+
+<img class="img img-fluid profilepic" src="{{profile.profilepic.url}}" alt="profile pic">
 <p>{{profile.bio}}</p>
 <p>{{profile.Phone}}</p>
 <p>{{profile.email}}</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{%endblock%}

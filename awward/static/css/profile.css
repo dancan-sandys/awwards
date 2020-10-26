@@ -1,0 +1,12 @@
+.profilepic{
+    width: 20%;
+    height: 35vh;
+    position: relative;
+    bottom: 30vh;
+    left: 5%;
+    border-radius: 10px;
+}
+.profile{
+    
+    height: 40vh;
+}
