@@ -7,4 +7,8 @@ class projectaddition(forms.ModelForm):
     class Meta:
         model = Project
         exclude = ['User']
-        
+
+class profileupdate(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['name']

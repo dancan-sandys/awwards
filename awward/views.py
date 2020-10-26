@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from .models import Profile, Project, Rating
-from .forms import projectaddition
+from .forms import projectaddition, profileupdate
 
 # Create your views here.
 
@@ -12,7 +12,7 @@ def home(request):
     projects = Project.objects.all()
     ratings = Rating.objects.all()
     project1 = Project.objects.get(id = 1)
-    rating1 = Rating.objects.get(id=1)
+    rating1 = Rating.objects.get(id=2)
 
     return render(request, 'home.html', {"projects":projects,"rating1":rating1, "ratings":ratings, "project1":project1})
 
