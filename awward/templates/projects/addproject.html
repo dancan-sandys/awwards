@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="../../static/css/bootstrap.css">
 {%endblock%}
 
-<form action="" class="form container bg-ligt" method="POST">
+<form action="" class="form container bg-ligt" method="POST" enctype="multipart/form-data">
 {%csrf_token%}
-{{form}}
+{{form.as_p}}
 
 <input type="submit" value="Add Project">
 
