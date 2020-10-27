@@ -26,10 +26,11 @@
         <h1>{{project.Title}}</h1>
         <img src="{{project.Landing.url}}" alt="landing">
         <p>{{project.Description}}</p>
-        
+        <a class="bg-dark btn text-white" href="project/single/{{project.id}}">View Project</a>
     </div>
 
     {%endfor%}
+
 </div>
 
 {%endblock%}

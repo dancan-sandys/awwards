@@ -109,14 +109,19 @@ def showproject(request):
 def oneproject(request, id):
 
     project = Project.objects.get(id = id)
-    ratings = Rating.objects.all()
-    rates =averagingrates(ratings)  
+    try:
+        ratings = Rating.objects.filter(project=project)
+        rates =averagingrates(ratings) 
+    except:
+        rates = ['No ratings','No ratings','No ratings','No ratings']
 
-    return render(request, "projects/one.html", {"project":project, "ratings":ratings})
+     
 
-def rate(request, id):
-    ratings = Rating.objects.all()    
+    return render(request, "projects/one.html", {"project":project,"rates":rates, "ratings":ratings})
+
+def rate(request, id):   
     project = Project.objects.get(id = id)
+    ratings = Rating.objects.all() 
     if request.method == "POST":
         creativity = request.POST.get("creativity")
         design = request.POST.get("design")
