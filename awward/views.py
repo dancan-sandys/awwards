@@ -9,9 +9,9 @@ from .functions import averagingrates
 # Create your views here.
 
 def home(request):
-    
+    project = Project.objects.get(id = 1)
     projects = Project.objects.all()
-    ratings = Rating.objects.all()
+    ratings = Rating.objects.filter(project=project)
     rates = averagingrates(ratings)    
     project1 = Project.objects.get(id = 1)
     
@@ -64,17 +64,18 @@ def updateprofile(request):
         form = profileupdate(request.POST, request.FILES)
         profile = Profile.objects.get(name=user.username)
 
+        print(form.is_valid())
         if form.is_valid():
-            profile.profilepic = form.save(commit = False)
-        
-        
-        user = request.user
-        profile.bio = request.POST.get("bio")
-        profile.Phone = request.POST.get("phone")
-        profile.email = request.POST.get("email")
-        profile.save()
+            profile = Profile.objects.get(name=user.username)
+            profilepic = form.cleaned_data['profilepic']
+            profile.profilepic = profilepic        
+            profile.bio = request.POST.get("bio")
+            profile.Phone = request.POST.get("phone")
+            profile.email = request.POST.get("email")
+            profile.save()
+            
 
-        return redirect("home")
+        return redirect("profilepage")
     
     return render(request,'profile/update.html', {"form":form})
 
@@ -88,19 +89,6 @@ def profilepage(request):
 
 
 
-# def addproject(request):
-
-#     form = projectaddition()
-#     if request.method == "POST":
-#         form = projectaddition(request.POST)
-#         if form.is_valid():
-#             form.save()
-
-#             return redirect('home')
-
-#     return render(request, 'projects/addproject.html',{"form":form})
-
-
 def addproject(request):
     form = projectaddition()
     if request.method == "POST":
@@ -108,6 +96,7 @@ def addproject(request):
        
         
         if form.is_valid():
+            
             user = request.user
             profile = Profile.objects.get(name=user.username)
             new_project = form.save(commit=False)
