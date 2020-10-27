@@ -43,3 +43,5 @@ class Rating(models.Model):
 
     def saverating(self):
         self.save()
+
+    

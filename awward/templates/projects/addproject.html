@@ -1,4 +1,12 @@
-<form action="" method="POST">
+{%extends 'base.html'%}
+
+{%block content%}
+{%block styles%}
+{{block.super}}
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
+{%endblock%}
+
+<form action="" class="form container bg-ligt" method="POST">
 {%csrf_token%}
 <p>{{form.Title.label}}</p>
 <p>{{form.Title}}</p>
@@ -10,3 +18,5 @@
 <input type="submit" value="Add Project">
 
 </form>
+
+{%endblock%}
