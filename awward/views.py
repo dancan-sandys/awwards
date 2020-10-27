@@ -5,9 +5,12 @@ from django.contrib.auth import login, logout, authenticate
 from .models import Profile, Project, Rating
 from .forms import projectaddition, profileupdate
 from .functions import averagingrates
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
+@login_required(login_url= 'login/')
 def home(request):
     project = Project.objects.get(id = 1)
     projects = Project.objects.all()
@@ -17,6 +20,7 @@ def home(request):
     
 
     return render(request, 'home.html', {"projects":projects,"rates":rates,"project1":project1})
+
 
 def register(request):
 
@@ -34,6 +38,7 @@ def register(request):
             return redirect('home')
 
     return render(request, 'accounts/register.html',{"form":form})
+
 
 def loginpage(request):
 
@@ -57,6 +62,7 @@ def loginpage(request):
 
     return render(request, 'accounts/login.html')
 
+@login_required(login_url= 'login/')
 def updateprofile(request):
     form = profileupdate()
     user = request.user
@@ -79,6 +85,7 @@ def updateprofile(request):
     
     return render(request,'profile/update.html', {"form":form})
 
+@login_required(login_url= 'login/')
 def profilepage(request):
 
     user = request.user
@@ -88,7 +95,7 @@ def profilepage(request):
     return render (request, 'profile/home.html', {"profile":profile, "projects":projects})
 
 
-
+@login_required(login_url= 'login/')
 def addproject(request):
     form = projectaddition()
     if request.method == "POST":
@@ -107,11 +114,13 @@ def addproject(request):
         
     return render(request, "projects/addproject.html", {"form":form})
 
+@login_required(login_url= 'login/')
 def showproject(request):
     projects = Project.objects.all()
 
     return render(request, "projects/display.html", {"projects":projects})
 
+@login_required(login_url= 'login/')
 def oneproject(request, id):
 
     project = Project.objects.get(id = id)
