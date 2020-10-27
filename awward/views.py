@@ -59,19 +59,20 @@ def loginpage(request):
 
 def updateprofile(request):
     form = profileupdate()
-
+    user = request.user
     if request.method == "POST":
-        form = profileupdate(request.POST)
+        form = profileupdate(request.POST, request.FILES)
+        profile = Profile.objects.get(name=user.username)
+
         if form.is_valid():
-            form.save()
+            profile.profilepic = form.save(commit = False)
         
-        # user = request.user
-        # profile = Profile.objects.get(name=user.username)
-        # profile.profilepic = request.POST.get("pic")
-        # profile.bio = request.POST.get("bio")
-        # profile.Phone = request.POST.get("phone")
-        # profile.email = request.POST.get("email")
-        # profile.save()
+        
+        user = request.user
+        profile.bio = request.POST.get("bio")
+        profile.Phone = request.POST.get("phone")
+        profile.email = request.POST.get("email")
+        profile.save()
 
         return redirect("home")
     
@@ -85,20 +86,36 @@ def profilepage(request):
 
     return render (request, 'profile/home.html', {"profile":profile, "projects":projects})
 
+
+
+# def addproject(request):
+
+#     form = projectaddition()
+#     if request.method == "POST":
+#         form = projectaddition(request.POST)
+#         if form.is_valid():
+#             form.save()
+
+#             return redirect('home')
+
+#     return render(request, 'projects/addproject.html',{"form":form})
+
+
 def addproject(request):
     form = projectaddition()
     if request.method == "POST":
-        form = projectaddition(request.POST)
-        user = request.user
-        profile = Profile.objects.get(name=user.username)
+        form = projectaddition(request.POST, request.FILES)
+       
         
         if form.is_valid():
+            user = request.user
+            profile = Profile.objects.get(name=user.username)
             new_project = form.save(commit=False)
             new_project.User = profile
             new_project.save()
 
             return redirect("home")
-        return redirect("home")
+        
     return render(request, "projects/addproject.html", {"form":form})
 
 def showproject(request):
@@ -108,18 +125,6 @@ def showproject(request):
 
 def oneproject(request, id):
 
-    project = Project.objects.get(id = id)
-    try:
-        ratings = Rating.objects.filter(project=project)
-        rates =averagingrates(ratings) 
-    except:
-        rates = ['No ratings','No ratings','No ratings','No ratings']
-
-     
-
-    return render(request, "projects/one.html", {"project":project,"rates":rates, "ratings":ratings})
-
-def rate(request, id):   
     project = Project.objects.get(id = id)
     ratings = Rating.objects.all() 
     if request.method == "POST":
@@ -134,11 +139,21 @@ def rate(request, id):
 
         new_rating = Rating(Design=design, Usability = functionality, Content = creativity, Average= average,Rater= profile, project=project)
         new_rating.saverating()
+    
+    try:
+        ratings = Rating.objects.filter(project=project)
+        rates =averagingrates(ratings) 
+    except:
+        rates = ['No ratings','No ratings','No ratings','No ratings']
 
-        return render(request, 'projects/rate.html', {"ratings": ratings, "averagecreativity":averagecreativity, "averagedesign":averagedesign,"averagefunctionality":averagefunctionality, "totalaverage":totalaverage})
+     
 
-    return render(request, 'projects/rate.html', {"ratings": ratings,"averagecreativity":averagecreativity, "averagedesign":averagedesign,"averagefunctionality":averagefunctionality, "totalaverage":totalaverage})
-
-
+    return render(request, "projects/one.html", {"project":project,"rates":rates, "ratings":ratings})
 
 
+
+# rates
+# project submission
+# profilepage
+# login
+# logout

@@ -10,6 +10,19 @@
     <img class="projectpic" src="{{project.Landing.url}}" alt="">
 </div>
 <h1>{{project.Title}}</h1>
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <input type="range" name="creativity" id="">
+    <input type="range" name="design" id="">
+    <input type="range" name="functionality" id="">
+
+    <input type="submit" value="submit">
+
+</form>
+
+
+
 <h3>Ratings</h3>
 <div class="ratings">
    
@@ -56,6 +69,8 @@
     </div>
 
 </div>
+
+
 
 
 {%endblock%}

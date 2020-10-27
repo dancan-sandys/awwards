@@ -8,15 +8,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'profilepage'%}">My Profile <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Adding Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
       </ul>
-      <span class="navbar-text">
-        {{request.user}}
+      <span class="navbar-text text-white">
+        Hello , <strong>{{request.user}}</strong> 
       </span>
     </div>
   </nav>

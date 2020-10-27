@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'project/add/$', views.addproject, name="addproject"),
     url(r'projects/$', views.showproject, name='projects'),
     url(r'project/single/(\d+)$', views.oneproject, name='single'),
-    url(r'project/rate/(\d+)$', views.rate, name='rate')
+    
 ]
 
 if settings.DEBUG:

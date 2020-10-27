@@ -11,4 +11,5 @@ class projectaddition(forms.ModelForm):
 class profileupdate(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['name','bio','Phone','email']
+        fields = ['profilepic']
+        
