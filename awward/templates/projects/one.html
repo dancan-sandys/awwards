@@ -11,13 +11,47 @@
 </div>
 <h1>{{project.Title}}</h1>
 
-<form action="" method="POST">
+<form action="" class="container" method="POST">
     {%csrf_token%}
-    <input type="range" name="creativity" id="">
-    <input type="range" name="design" id="">
-    <input type="range" name="functionality" id="">
+    <div class="form">
 
-    <input type="submit" value="submit">
+        <div class="input">
+            <label for="creativity">Creativity:
+                <input type="range" min="0" max="10" name="creativity" class="slider" id="creativity">
+            </label>
+            <div class="selector">
+                <div class="selectvalue" id="creativityvalue">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="input">
+            <label for="Design">Design:
+                <input type="range" min="0" max="10" name="design" class="slider" id="design">
+            </label>
+            <div class="selector">
+                <div class="selectvalue" id="designvalue">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="input">
+            <label for="functionality">Functionality:
+                <input type="range" min="0" max="10" name="functionality" class="slider" id="functionality">
+            </label>
+            <div class="selector">
+                <div class="selectvalue" id="functionalityvalue">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-dark" value="submit ratings">
 
 </form>
 
@@ -25,52 +59,82 @@
 
 <h3>Ratings</h3>
 <div class="ratings">
-   
+
     {%for rating in ratings%}
     <div class="rating card">
         <p><small>As rated by <em>{{rating.Rater.name}}</em></small></p>
         <p>
-           Design: <span class="rate">{{rating.Design}}</span>
+            Design: <span class="rate">{{rating.Design}}</span>
         </p>
 
         <p>
-            Usability: <span class="rate" >{{rating.Usability}}</span>
+            Usability: <span class="rate">{{rating.Usability}}</span>
         </p>
 
         <p>
-            Content: <span class="rate" >{{rating.Content}}</span>
+            Content: <span class="rate">{{rating.Content}}</span>
         </p>
 
         <p>
-            Average: <span class="rate" >{{rating.Average}}</span>
+            Average: <span class="rate">{{rating.Average}}</span>
         </p>
 
     </div>
     {%endfor%}
-    
+
     <div class="rating card">
         <p> <big> <em> Average ratings</em></big></p>
         <p>
-           Design: <span class="rate">{{rates.0}}</span>
+            Design: <span class="rate">{{rates.0}}</span>
         </p>
 
         <p>
-            Usability: <span class="rate" >{{rates.1}}</span>
+            Usability: <span class="rate">{{rates.1}}</span>
         </p>
 
         <p>
-            Content: <span class="rate" >{{rates.2}}</span>
+            Content: <span class="rate">{{rates.2}}</span>
         </p>
 
         <p>
-            Average: <span class="rate" >{{rates.3}}</span>
+            Average: <span class="rate">{{rates.3}}</span>
         </p>
 
     </div>
 
 </div>
 
+{%block scripts%}
+<script>
 
+    var creativity = document.getElementById("creativity");
+    var creativityvalue = document.getElementById("creativityvalue");
+    creativityvalue.innerHTML = creativity.value
+
+    creativity.oninput = function () {
+        creativityvalue.innerHTML = this.value
+    }
+
+    var design = document.getElementById("design");
+    var designvalue = document.getElementById("designvalue");
+    designvalue.innerHTML = design.value
+    design.oninput = function () {
+        designvalue.innerHTML = this.value
+    }
+
+    var functionality = document.getElementById("functionality");
+    var functionalityvalue = document.getElementById("functionalityvalue");
+    functionalityvalue.innerHTML = functionality.value
+    functionality.oninput = function () {
+        functionalityvalue.innerHTML = this.value
+    }
+
+
+
+</script>
+
+
+{%endblock%}
 
 
 {%endblock%}

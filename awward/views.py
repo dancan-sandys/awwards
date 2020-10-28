@@ -159,8 +159,8 @@ def oneproject(request, id):
 
 
 
-# rates
-# project submission
-# profilepage
-# login
-# logout
+#rates input styling
+#login and register styling
+#Right sided boundaries
+#Rest api
+#Search
