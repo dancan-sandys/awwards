@@ -62,6 +62,13 @@ def loginpage(request):
 
     return render(request, 'accounts/login.html')
 
+
+def logoutpage(request):
+    pass
+
+
+
+
 @login_required(login_url= 'login/')
 def updateprofile(request):
     form = profileupdate()
@@ -119,6 +126,8 @@ def showproject(request):
     projects = Project.objects.all()
 
     return render(request, "projects/display.html", {"projects":projects})
+
+
 
 @login_required(login_url= 'login/')
 def oneproject(request, id):
