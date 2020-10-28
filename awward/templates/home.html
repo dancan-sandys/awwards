@@ -45,15 +45,22 @@
 </div>
 
 <h2 class="text-center">Other projects</h2>
-
+<hr>
 <div class="projects">
     {%for project in projects%}
     <div class="project card">
-        
-        <img src="{{project.Landing.url}}" alt="landing">
-        <p>{{project.Title}}</p>
-        <p><small>Project by</small> </p>
-        <p><img class="poster" src="{{project.User.profilepic.url}}" alt=""><em>{{project.User.name}}</em></p>
+
+        <img class="landing" src="{{project.Landing.url}}" alt="landing">
+        <div class="owner">
+            <p>{{project.Title}}</p>
+            <div>
+                <p class="by">
+                    <small>Project by</small>
+                    <img class="profile" src="{{project.User.profilepic.url}}" alt="">
+                    <em>{{project.User.name}}</em>
+                </p>
+            </div>
+        </div>
         <a class="bg-dark btn text-white" href="project/single/{{project.id}}">View Project</a>
     </div>
 

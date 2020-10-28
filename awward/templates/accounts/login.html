@@ -1,10 +1,18 @@
-<form action="" method="POST">
-{%csrf_token%}
-<input type="text" name="username" placeholder="username">
-<input type="password" name="password" placeholder="password">
-<input type="submit" value="Log in">
-<p>{{message}}</p>
-<p>{{username}}</p>
+{%block styles%}
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/forms.css">
 
+{%endblock%}
 
-</form>
+<div class="login">
+    <form action="" method="POST">
+        <h3>Log In</h3>
+        {%csrf_token%}
+        <p><input type="text" name="username" placeholder="username"></p>
+
+        <p><input type="password" name="password" placeholder="password"></p>
+        <input type="submit" class="btn loginbtn btn-dark" value="Log in">
+
+        <p>If you don't have an account you can create one <a href="{%url 'register' %}">here.</a></p>
+    </form>
+</div>

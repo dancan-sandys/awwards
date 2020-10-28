@@ -1,0 +1,30 @@
+.login{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../media/Background.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.login form{
+    background-color: cornsilk;
+    padding: 3%;
+    width: 40%;
+    height: 50vh;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.login p input{
+    margin-bottom: 4%;
+    width: 90%;
+    height: 5vh;
+    padding: 2%;
+}
+
+.loginbtn{
+    width: 25%;
+    padding: 2%;
+}

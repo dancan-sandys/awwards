@@ -10,7 +10,11 @@
         </li>
       </ul>
       <span class="navbar-text text-white">
-        Hello , <strong>{{request.user}}</strong> 
+        Hello, <strong>{{request.user}}</strong> 
+            
       </span>
+      <a class="logout" href="{% url 'logout'%}">Logout</a>  
     </div>
   </nav>
+
+  

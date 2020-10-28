@@ -5,37 +5,49 @@
 {%block styles%}
 {{block.super}}
 <link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/main.css">
 <link rel="stylesheet" href="../../static/css/profile.css">
 
 {%endblock%}
 <div class="profile ">
     <div class="bio">
-        <a href="{%url 'addproject'%}"><button class = 'btn bg-white' >Add Project</button> </a>
-        <a href="{%url 'updateprofile'%}"><button class = 'btn bg-white' >Update Profile</button> </a>
+        <a href="{%url 'addproject'%}"><button class='btn bg-white'>Add Project</button> </a>
+        <a href="{%url 'updateprofile'%}"><button class='btn bg-white'>Update Profile</button> </a>
         <p><em>Phone Number: </em>{{profile.Phone}}</p>
         <p><em>Email Address: </em>{{profile.email}}</p>
         <p><em>Bio: </em>{{profile.bio}}</p>
-        
+
     </div>
-    
+
 </div>
 
 <img class="img img-fluid profilepic" src="{{profile.profilepic.url}}" alt="profile pic">
 
 <div class="projects">
 
-    <h1>My Projects</h1>
+    <h1 class="text-center">My Projects</h1>
+    <hr>
 
     <div class="Projects">
         {%for project in projects%}
         <div class="project card">
-            <h1>{{project.Title}}</h1>
-            <img src="{{project.Landing.url}}" alt="landing">
-            <p>{{project.Description}}</p>
-            <a  class="bg-dark btn text-white" href="{%url 'single' project.id %}">View Project</a>
+
+            <img class="landing" src="{{project.Landing.url}}" alt="landing">
+            <div class="owner">
+                <p>{{project.Title}}</p>
+                <div>
+                    <p class="by">
+                        <small>Project by</small>
+                        <img class="avatar" src="{{project.User.profilepic.url}}" alt="">
+                        <em>{{project.User.name}}</em>
+                    </p>
+                </div>
+            </div>
+            <a class="bg-dark btn button text-white" href="{%url 'single' project.id %}">View Project</a>
         </div>
-    
+
         {%endfor%}
+
     </div>
 
 </div>
@@ -43,5 +55,3 @@
 
 
 {%endblock%}
-
-

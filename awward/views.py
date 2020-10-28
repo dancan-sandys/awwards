@@ -133,7 +133,7 @@ def showproject(request):
 def oneproject(request, id):
 
     project = Project.objects.get(id = id)
-    ratings = Rating.objects.all() 
+    ratings = Rating.objects.filter(project=project) 
     if request.method == "POST":
         creativity = request.POST.get("creativity")
         design = request.POST.get("design")
