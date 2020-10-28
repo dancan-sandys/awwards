@@ -11,8 +11,8 @@ body{
     border-radius: 10px;
 }
 .profile{
-    
-    height: 40vh;
+    background-image: url('../../../media/landings/pexels-panumas-nikhomkhai-1148820.jpg');
+    height: 50vh;
 }
 
 .bio{

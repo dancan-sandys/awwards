@@ -8,11 +8,47 @@
 {%endblock%}
 <div class="projectPic">
     <img class="projectpic" src="{{project.Landing.url}}" alt="">
+    <div class="cover">
+        <h1 class="text-center name">{{project.Title}}</h1>
+
+        <p> <big> <em> Average ratings</em></big></p>
+        <div class="averagerates">
+            <div class="rat">
+                <p>
+                    Design:
+                </p>
+                <div class="text-center">{{rates.0}}</div>
+            </div>
+            <div class="rat">
+                <p>
+                    Usability:
+                </p>
+                <div class="text-center">{{rates.1}}</div>
+            </div>
+
+            <div class="rat">
+                <p>
+                    Content:
+                </p>
+                <div class="text-center">{{rates.2}}</div>
+            </div>
+
+            <div class="rat">
+                <p>
+                    Average:
+                </p>
+                <div class="text-center">{{rates.3}}</div>
+            </div>
+        </div>
+
+
+    </div>
 </div>
-<h1>{{project.Title}}</h1>
+
 
 <form action="" class="container" method="POST">
     {%csrf_token%}
+    <h1>Rate</h1>
     <div class="form">
 
         <div class="input">
@@ -61,80 +97,72 @@
 <div class="ratings">
 
     {%for rating in ratings%}
-    <div class="rating card">
-        <p><small>As rated by <em>{{rating.Rater.name}}</em></small></p>
-        <p>
-            Design: <span class="rate">{{rating.Design}}</span>
-        </p>
+    <div class="rating card bg-light">
+        <p><small>As rated by </small> <em>{{rating.Rater.name}}</em></p>
+        <div class="rateclass">
+            <p>
+                Design:
+            </p>
+            <span class="rate">{{rating.Design}}</span>
+        </div>
 
-        <p>
-            Usability: <span class="rate">{{rating.Usability}}</span>
-        </p>
+        <div class="rateclass">
+            <p>
+                Usability:
 
-        <p>
-            Content: <span class="rate">{{rating.Content}}</span>
-        </p>
+            </p>
+            <span class="rate">{{rating.Usability}}</span>
+        </div>
 
-        <p>
-            Average: <span class="rate">{{rating.Average}}</span>
-        </p>
+        <div class="rateclass">
+            <p>
+                Content:
+            </p>
+            <span class="rate">{{rating.Content}}</span>
+        </div>
+
+        <div class="rateclass">
+            <p>
+                Average:
+
+            </p>
+            <span class="rate">{{rating.Average}}</span>
+        </div>
 
     </div>
     {%endfor%}
 
-    <div class="rating card">
-        <p> <big> <em> Average ratings</em></big></p>
-        <p>
-            Design: <span class="rate">{{rates.0}}</span>
-        </p>
+    {%block scripts%}
+    <script>
 
-        <p>
-            Usability: <span class="rate">{{rates.1}}</span>
-        </p>
+        var creativity = document.getElementById("creativity");
+        var creativityvalue = document.getElementById("creativityvalue");
+        creativityvalue.innerHTML = creativity.value
 
-        <p>
-            Content: <span class="rate">{{rates.2}}</span>
-        </p>
+        creativity.oninput = function () {
+            creativityvalue.innerHTML = this.value
+        }
 
-        <p>
-            Average: <span class="rate">{{rates.3}}</span>
-        </p>
+        var design = document.getElementById("design");
+        var designvalue = document.getElementById("designvalue");
+        designvalue.innerHTML = design.value
+        design.oninput = function () {
+            designvalue.innerHTML = this.value
+        }
 
-    </div>
-
-</div>
-
-{%block scripts%}
-<script>
-
-    var creativity = document.getElementById("creativity");
-    var creativityvalue = document.getElementById("creativityvalue");
-    creativityvalue.innerHTML = creativity.value
-
-    creativity.oninput = function () {
-        creativityvalue.innerHTML = this.value
-    }
-
-    var design = document.getElementById("design");
-    var designvalue = document.getElementById("designvalue");
-    designvalue.innerHTML = design.value
-    design.oninput = function () {
-        designvalue.innerHTML = this.value
-    }
-
-    var functionality = document.getElementById("functionality");
-    var functionalityvalue = document.getElementById("functionalityvalue");
-    functionalityvalue.innerHTML = functionality.value
-    functionality.oninput = function () {
-        functionalityvalue.innerHTML = this.value
-    }
+        var functionality = document.getElementById("functionality");
+        var functionalityvalue = document.getElementById("functionalityvalue");
+        functionalityvalue.innerHTML = functionality.value
+        functionality.oninput = function () {
+            functionalityvalue.innerHTML = this.value
+        }
 
 
 
-</script>
+    </script>
 
 
-{%endblock%}
+    {%endblock%}
 
 
-{%endblock%}
+    {%endblock%}

@@ -1,30 +1,63 @@
 
 .projects{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     width: 100%;
     padding: 5%;
 }
 
 .project{
     width: 80%;
-    padding: 3%;
+    margin-bottom: 15%;
+    
 }
 
 .project img{
-    height: 40vh;
+    width:100%;
+    height: auto;
 }
 
 .main{
     
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     background-image: url("../../../media/pexels-daria-shevtsova-3277932.jpg");    
     background-size: cover;
     text-align: center;
     color: white;
 }
+.cover{
+    opacity: 0.7;
+    width: 100%;
+    height: 80vh;
+    background-color: black;
+}
 .mainratings{
+    align-items: center;
+    text-align: center;
     position: relative;
     top: 40%;
+}
+.averagerates{
+    display: flex;
+    flex-direction: row;
+}
+
+.rate{
+    border-right:2px solid white ;
+    width: 30%;
+    padding: 4%;
+    padding-right: 5%;
+}
+
+h2{
+    padding: 2%;
+}
+
+.poster{
+    width: 4%;
+}
+
+.btn{
+    width: 60%;
 }

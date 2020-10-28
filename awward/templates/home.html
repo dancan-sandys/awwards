@@ -7,25 +7,53 @@
 
 {%endblock%}
 <div class="main">
-    <h1>Project of the day: {{project1.Title}}</h1>
-    
-    <div class="mainratings">
-        <h5>Ratings</h5>
-        {{rates.0}}%
-        {{rates.0}}%
-        {{rates.0}}%
-        {{rates.0}}%
+    <div class="cover">
+        <h1>Project of the day: {{project1.Title}}</h1>
+
+        <div class="mainratings">
+            <h5>Ratings</h5>
+            <div class="averagerates">
+                <div class="rate">
+                    <p>
+                        Design:
+                    </p>
+                    <div>{{rates.0}}</div>
+                </div>
+                <div class="rate">
+                    <p>
+                        Usability:
+                    </p>
+                    <div>{{rates.1}}</div>
+                </div>
+
+                <div class="rate">
+                    <p>
+                        Content:
+                    </p>
+                    <div>{{rates.2}}</div>
+                </div>
+
+                <div class="rate">
+                    <p>
+                        Average:
+                    </p>
+                    <div>{{rates.3}}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<h2>Other projects</h2>
+<h2 class="text-center">Other projects</h2>
 
 <div class="projects">
     {%for project in projects%}
     <div class="project card">
-        <h1>{{project.Title}}</h1>
+        
         <img src="{{project.Landing.url}}" alt="landing">
-        <p>{{project.Description}}</p>
+        <p>{{project.Title}}</p>
+        <p><small>Project by</small> </p>
+        <p><img class="poster" src="{{project.User.profilepic.url}}" alt=""><em>{{project.User.name}}</em></p>
         <a class="bg-dark btn text-white" href="project/single/{{project.id}}">View Project</a>
     </div>
 

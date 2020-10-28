@@ -159,8 +159,6 @@ def oneproject(request, id):
 
 
 
-#rates input styling
 #login and register styling
-#Right sided boundaries
 #Rest api
 #Search
