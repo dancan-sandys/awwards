@@ -172,10 +172,26 @@ def projectsapi(request):
     return Response(serializer.data)
 
 @api_view(['GET'])
+def singleprojectsapi(request, id):
+
+    projects = Project.objects.get(id = id)
+    serializer = projectSerializer(projects, many = False)
+
+    return Response(serializer.data)
+
+@api_view(['GET'])
 def profilesapi(request):
 
     profiles = Profile.objects.all()
     serializer = profileSerializer(profiles, many = True)
+
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def singleprofilesapi(request, id):
+
+    profiles = Profile.objects.get(id = id)
+    serializer = profileSerializer(profiles, many = False)
 
     return Response(serializer.data)
 
