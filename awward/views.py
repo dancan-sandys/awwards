@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from .serializers import projectSerializer
 
 
 # Create your views here.
@@ -165,8 +166,18 @@ def oneproject(request, id):
 @api_view(['GET'])
 def projectsapi(request):
 
+    projects = Project.objects.all()
+    serializer = projectSerializer(projects, many = True)
 
-    return Response("API END POINT")
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def profilesapi(request):
+
+    projects = Project.objects.all()
+    serializer = projectSerializer(projects, many = True)
+
+    return Response(serializer.data)
 
 #login and register styling
 #Rest api
