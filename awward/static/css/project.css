@@ -28,7 +28,7 @@ body{
     grid-template-columns: auto auto auto;
 }
 .rating{
-
+    margin-bottom: 2%;
     padding: 5%;
     width:90%;
     text-align: left;

@@ -3,3 +3,11 @@
     margin-left: 1%;    
     border-left: 1px solid white;
 }
+
+.navbar{
+    background-color: black;
+}
+
+body{
+    background-color: cyan;
+}

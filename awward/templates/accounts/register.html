@@ -1,12 +1,54 @@
-<form action="", method="POST">
-    {%csrf_token%}
+{%block styles%}
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/forms.css">
 
-    {{form.username.label}}
-    {{form.username}}
-    {{form.password1.label}}
-    {{form.password1}}
-    {{form.password2.label}}
-    {{form.password2}}
+{%endblock%}
 
-    <input type="submit">
-</form>
+<div class="register">
+
+    <form action="" , class="signup" method="POST">
+
+        {%csrf_token%}
+
+        <h2>Sign Up</h2>
+
+        <p>
+        <div>
+            {{form.username.label}}:
+        </div>
+
+        <div class="input">
+            {{form.username}}
+        </div>
+
+        </p>
+        <p>
+        <div>
+            {{form.password1.label}}:
+        </div>
+        <div class="input">
+            {{form.password1}}
+        </div>
+
+        </p>
+
+        <p>
+        <div>
+            {{form.password2.label}}:
+        </div>
+        <div class="input">
+            {{form.password2}}
+        </div>
+
+        </p>
+
+
+        <input class="btn btn-dark" type="submit" value="sign up">
+   
+        <p>You already have an account? <a href="{% url 'logout' %}"> Sign in.</a></p>
+
+    </form>
+
+</div>
+
+

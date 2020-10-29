@@ -6,6 +6,9 @@ from .models import Profile, Project, Rating
 from .forms import projectaddition, profileupdate
 from .functions import averagingrates
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 
 # Create your views here.
@@ -31,8 +34,10 @@ def register(request):
            
             form.save()
             
-            user = request.user
-            new_profile = Profile(name=user.username)
+            user = form.cleaned_data['username']
+            defaultprofile = Profile.objects.get(id = 7)
+            profilepic = defaultprofile.profilepic
+            new_profile = Profile(name=user, profilepic = profilepic)
             new_profile.saveprofile()
     
             return redirect('home')
@@ -157,7 +162,11 @@ def oneproject(request, id):
 
     return render(request, "projects/one.html", {"project":project,"rates":rates, "ratings":ratings})
 
+@api_view(['GET'])
+def projectsapi(request):
 
+
+    return Response("API END POINT")
 
 #login and register styling
 #Rest api
