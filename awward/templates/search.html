@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+{%block styles%}
+{{block.super}}
+<link rel="stylesheet" href="../static/css/home.css">
+<link rel="stylesheet" href="../static/css/search.css">
+
+{%endblock%}
+<div class="projects">
+    {%for project in projects%}
+    <div class="project card">
+
+        <img class="landing" src="{{project.Landing.url}}" alt="landing">
+        <div class="owner">
+            <p>{{project.Title}}</p>
+            <div>
+                <p class="by">
+                    <small>Project by</small>
+                    <img class="profile" src="{{project.User.profilepic.url}}" alt="">
+                    <em>{{project.User.name}}</em>
+                </p>
+            </div>
+        </div>
+        <a class="bg-dark btn text-white" href="{%url 'single' project.id%}">View Project</a>
+    </div>
+
+    {%endfor%}
+
+</div>
+{%endblock%}

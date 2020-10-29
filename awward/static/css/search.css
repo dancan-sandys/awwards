@@ -1,0 +1,13 @@
+.projects{
+    grid-template-columns: auto;
+    
+}
+.project{
+    height: 80vh;
+}
+
+.profile{
+    width: 15%;
+    height: 15vh;
+    border-radius: 100%;
+}

@@ -31,6 +31,7 @@ class Project(models.Model):
     def deleteproject(self):
         self.delete()
     
+     
 
     
 class Rating(models.Model):

@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'project/api/(\d+)$', views.singleprojectsapi, name='singleprojectsapi'),
     url(r'profile/api/(\d+)$', views.singleprofilesapi, name='singleprofilesapi'),
     url(r'endpoints/$', views.allendpoints, name='endpoints'),
+    url(r'searchproject/$', views.searchproject, name='searchproject'),
 
     
 ]

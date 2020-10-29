@@ -76,7 +76,7 @@ body{
     flex-direction: row;
 }
 
-form{
+.ratingform{
     margin: 3%;
     padding: 2%;
     background-color: whitesmoke;

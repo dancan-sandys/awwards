@@ -14,10 +14,16 @@
         </li>
 
       </ul>
+
+      <form class="form-inline searchform my-2 my-lg-0" action="{% url 'searchproject' %}" role="search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="project" aria-label="Search">
+      </form>
+
       <span class="navbar-text text-white">
         Welcome back, <strong>{{request.user}}</strong> 
             
       </span>
+
       <a class="logout" href="{% url 'logout'%}">Logout</a>  
     </div>
   </nav>

@@ -200,6 +200,16 @@ def allendpoints(request):
     return render(request, 'endpoints.html')
 
 
+def searchproject(request):
+    if 'project' in request.GET and request.GET["project"]:
+        searchedproject = request.GET.get("project")
+        project = Project.objects.filter(Title = searchedproject)
+        print(project)
+    
+        return render(request, 'search.html', {"projects":project})
+
+    return render(request, 'search.html')
+
 #login and register styling
 #Rest api
 #Search
