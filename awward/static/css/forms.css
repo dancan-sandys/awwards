@@ -66,3 +66,54 @@
 h2{
     margin-bottom: 4vh;
 }
+
+
+.addproject{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../media/Background.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.projectform{
+    background-color: White;
+    padding: 3%;
+    width: 50%;
+    height: 90vh;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.projectform p div{
+    padding-bottom: 5%;
+}
+
+
+.profileform{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../media/Background.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.profileform form{
+    background-color: White;
+    padding: 3%;
+    width: 50%;
+    height: 90vh;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+textarea{
+    width: 90%;
+}
+.updateprofile p input{
+    width: 80%;
+}

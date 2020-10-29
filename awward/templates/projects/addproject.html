@@ -1,17 +1,59 @@
 {%extends 'base.html'%}
 
 {%block content%}
+
 {%block styles%}
 {{block.super}}
 <link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/forms.css">
+<link rel="stylesheet" href="../../static/css/main.css">
 {%endblock%}
 
-<form action="" class="form container bg-ligt" method="POST" enctype="multipart/form-data">
-{%csrf_token%}
-{{form.as_p}}
+<div class="addproject">
+    <form action="" class="projectform form container bg-ligt" method="POST" enctype="multipart/form-data">
 
-<input type="submit" value="Add Project">
+        {%csrf_token%}
 
-</form>
+        <h2>Add Project</h2>
+        <hr>
+
+        <p>
+        <div class="projecttitle Label">
+            {{form.Title.label}}:
+        </div>
+
+        <div class="projecttitle Input">
+            {{form.Title}}
+        </div>
+
+        </p>
+        <p>
+        <div class="projectLanding Label">
+            {{form.Landing.label}} page picture:
+        </div>
+        <div class="projectLanding Input">
+            {{form.Landing}}
+        </div>
+
+        </p>
+
+        <p>
+        <div class="projectDescription Label">
+            {{form.Description.label}}:
+        </div>
+        <div class="projectDescription Input">
+            {{form.Description}}
+        </div>
+
+        </p>
+
+
+        <input class="btn btn-dark" type="submit" value="sign up">
+
+
+    </form>
+
+
+</div>
 
 {%endblock%}

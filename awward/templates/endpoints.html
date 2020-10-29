@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+
+{%block content%}
+    <div class="container">
+        <div class="endpoints">
+
+            <div class="endpoint">
+ 
+                <h3> Query </h3>
+                <h3> Endpoint </h3>
+            </div>
+            <hr class="text-dark">
+
+            <div class="allprojects endpoint">
+ 
+                <h5>All Projects </h5>
+                <p> <a href="{%url 'projectsapi'%}">/projects/api/</a></p>
+            </div>
+
+            <div class="allprofiles endpoint">
+ 
+                <h5>All Profiles </h5>
+                <p><a href="{%url 'profilesapi'%}">/profiles/api/</a></p>
+            </div>
+
+            <div class="singleproject endpoint">
+ 
+                <h5>Single Project <small></small> </h5>
+                <p><a href="{%url 'singleprojectsapi' 1%}">/project/api/(pass in id)</a></p>
+            </div>
+
+            <div class="singleprofile endpoint">
+ 
+                <h5>Single Profile <small></small> </h5>
+                <p><a href="{%url 'singleprofilesapi' 7%}">/profile/api/(pass in id)</a></p>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+{%endblock%}

@@ -195,6 +195,11 @@ def singleprofilesapi(request, id):
 
     return Response(serializer.data)
 
+def allendpoints(request):
+
+    return render(request, 'endpoints.html')
+
+
 #login and register styling
 #Rest api
 #Search

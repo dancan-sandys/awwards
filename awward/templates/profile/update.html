@@ -1,13 +1,29 @@
-<form action=""  method="POST" enctype="multipart/form-data">
+{%extends 'base.html'%}
 
-    {%csrf_token%}
-    
-    {{form}}
-    <p><textarea name="bio" id="" cols="30" rows="10" placeholder="Bio"></textarea></p>
-    <p><input type="text" placeholder="phone number" name="phone"></p>
-    <p><input type="text" placeholder="email" name="email"> </p>
-    <p><input type="submit" value="Update"></p>
+{%block content%}
 
-    
+{%block styles%}
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/forms.css">
+<link rel="stylesheet" href="../../static/css/main.css">
 
-</form>
+{%endblock%}
+
+<div class="profileform">
+    <form action="" class="updateprofile container form" method="POST" enctype="multipart/form-data">
+        <h2 class="text-center">Update Profile</h2>
+        <hr>
+        {%csrf_token%}
+        <p>{{form}}</p>
+        <p><textarea name="bio" id="" cols="30" rows="10" placeholder="Bio"></textarea></p>
+        <p><input type="text" placeholder="phone number" name="phone"></p>
+        <p><input type="text" placeholder="email" name="email"> </p>
+        <p><button type="submit" class="btn btn-dark" value="Update">Update</button></p>
+
+
+
+    </form>
+
+</div>
+
+{%endblock%}
