@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'projects/$', views.showproject, name='projects'),
     url(r'project/single/(\d+)$', views.oneproject, name='single'),
     url(r'projects/api/$', views.projectsapi, name='projectsapi'),
+    url(r'profiles/api/$', views.profilesapi, name='profilesapi'),
 
     
 ]
