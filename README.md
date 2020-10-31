@@ -10,7 +10,7 @@
 ## Description
 This app allows a user to post projects ,view other people's photos, comment and like.
 ## live link
-https://sandysprojects.herokuapp.com/
+https://sandysawwards.herokuapp.com/
 
 ## Pre-requisite necesities to run the app
 
