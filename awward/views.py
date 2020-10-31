@@ -18,6 +18,7 @@ from .serializers import projectSerializer,profileSerializer
 def home(request):
     project = Project.objects.get(id = 1)
     projects = Project.objects.all()
+    projects =  projects.reverse()
     ratings = Rating.objects.filter(project=project)
     rates = averagingrates(ratings)    
     project1 = Project.objects.get(id = 1)
